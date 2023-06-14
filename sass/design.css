@@ -150,7 +150,6 @@ body {
 }
 
 #heart {
-  padding-right: 15px;
   display: none;
 }
 
@@ -331,12 +330,13 @@ form input {
 }
 
 .dropdown {
+  width: 100%;
   position: relative;
   display: flex;
+  justify-content: space-between;
   width: 290px;
-  height: 55px;
+  height: 60px;
   border-radius: 5px;
-  margin-left: 1rem;
 }
 
 .dropdown-title {
@@ -348,20 +348,14 @@ form input {
 }
 
 .dropdown-input {
+  width: 100%;
   border: 1px solid;
   border-color: hsl(0, 67%, 34%);
   border-radius: 5px;
   background-color: hsl(0, 67%, 34%);
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
   cursor: pointer;
-  transition: 300ms ease;
-  -webkit-transition: 300ms ease;
-  -moz-transition: 300ms ease;
-  -ms-transition: 300ms ease;
-  -o-transition: 300ms ease;
 }
 
 .dropdown.active .dropdown-input {
@@ -374,10 +368,13 @@ form input {
   flex: 0 0 auto;
   width: 80%;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 -2rem;
   border: none;
   background: transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
 .dropdown__chevron {
@@ -397,18 +394,12 @@ form input {
   width: 173px;
   left: 117px;
   font-size: 1.3rem;
-  top: calc(100% + 50px);
   border-top: 1px solid white;
   border-radius: 5px;
   background-color: hsl(0, 67%, 34%);
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: top 300ms ease, opacity 300ms ease;
-  -webkit-transition: top 300ms ease, opacity 300ms ease;
-  -moz-transition: top 300ms ease, opacity 300ms ease;
-  -ms-transition: top 300ms ease, opacity 300ms ease;
-  -o-transition: top 300ms ease, opacity 300ms ease;
 }
 
 .dropdown.active .dropdown-round {
@@ -426,11 +417,6 @@ form input {
   padding: 0.7rem 1rem;
   cursor: pointer;
   border-top: 1px solid white;
-  transition: background-color 300ms ease;
-  -webkit-transition: background-color 300ms ease;
-  -moz-transition: background-color 300ms ease;
-  -ms-transition: background-color 300ms ease;
-  -o-transition: background-color 300ms ease;
 }
 
 .dropdown-round ul li:hover {

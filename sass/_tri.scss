@@ -3,16 +3,16 @@
 
 .section-tri{
   margin: 90px;
-
 }
 
 .dropdown {
+  width: 100%;
   position: relative;
   display: flex;
+  justify-content: space-between;
   width: 290px;
-  height: 55px;
+  height: 60px;
   border-radius: 5px;
-  margin-left: 1rem;
 }
 
 .dropdown-title {
@@ -23,20 +23,15 @@
   width: 200px;
 }
 .dropdown-input {
+  width: 100%;
   border: 1px solid;
   border-color: $colorLoacation;
   border-radius: 5px;
   background-color: $colorLoacation;
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
   cursor: pointer;
-  transition: 300ms ease;
-  -webkit-transition: 300ms ease;
-  -moz-transition: 300ms ease;
-  -ms-transition: 300ms ease;
-  -o-transition: 300ms ease;
+  
 }
 .dropdown.active .dropdown-input {
   border-color: white;
@@ -48,10 +43,14 @@
   flex: 0 0 auto;
   width: 80%;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 -2rem;
   border: none;
   background: transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
 }
 .dropdown__chevron {
   font-size: 1.4rem;
@@ -70,18 +69,13 @@
   width: 173px;
   left: 117px;
   font-size: 1.3rem;
-  top: calc(100% + 50px);
   border-top: 1px solid white;
   border-radius: 5px;
   background-color: $colorLoacation;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: top 300ms ease, opacity 300ms ease;
-  -webkit-transition: top 300ms ease, opacity 300ms ease;
-  -moz-transition: top 300ms ease, opacity 300ms ease;
-  -ms-transition: top 300ms ease, opacity 300ms ease;
-  -o-transition: top 300ms ease, opacity 300ms ease;
+  
 }
 .dropdown.active .dropdown-round {
   top: 0px;
@@ -97,13 +91,11 @@
   padding: 0.7rem 1rem;
   cursor: pointer;
   border-top: 1px solid white;
-  transition: background-color 300ms ease;
-  -webkit-transition: background-color 300ms ease;
-  -moz-transition: background-color 300ms ease;
-  -ms-transition: background-color 300ms ease;
-  -o-transition: background-color 300ms ease;
+  
 }
 
 .dropdown-round ul li:hover {
   background-color: gold;
+  
+  
 }
