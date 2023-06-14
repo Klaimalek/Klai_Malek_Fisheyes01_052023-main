@@ -321,8 +321,16 @@ form input {
 }
 
 .modal-body {
+  align-items: center;
   text-align: center;
-  padding-left: 102px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  padding-left: 50px;
+}
+
+.message-icon {
+  margin-top: 50px;
 }
 
 .section-tri {
