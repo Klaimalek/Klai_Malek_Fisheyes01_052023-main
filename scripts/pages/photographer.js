@@ -202,6 +202,7 @@ function functionSort(data) {
   galleryConteneur.innerHTML = ''; // vider l'ancien conteneur pour afficher la nouvelle liste de media
 
   setMedia(media);
+  initLightbox();
 }
 //---------------------------------lightbox--------------------------------------
 
