@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link href="sass/design.css" rel="stylesheet" />
+
+    <link href="sass/_photographer.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fisheye - photographe</title>
+  </head>
+  <body>
+    <header role="banner">
+      <a href="index.html"
+        ><img
+          src="assets/images/logo.png"
+          class="logo"
+          alt="Fisheye Home page"
+        />
+      </a>
+    </header>
+    <main id="main" aria-hidden="false">
+      <section class="photograph-header">
+        <div class="photographerProfil">
+          <h1 id="namePhotographer"></h1>
+          <div class="infoProfilPhotographer">
+            <h2 id="photohrapherLocation" class="locationProfil"></h2>
+            <p id="photographerTagligne" class="taglineProfil"></p>
+          </div>
+        </div>
+        <button
+          class="contact_button"
+          onclick="launchModal()"
+          aria-label="Contact Me"
+          aria-hidden="true"
+        >
+          Contactez-moi
+        </button>
+        <div class="imgProfil">
+          <img
+            src="#"
+            class="imgPhotographerProfil"
+            id="photographerImg"
+            alt="Mimi Keel"
+          />
+        </div>
+      </section>
+
+      <section class="section-tri">
+        <div class="dropdown">
+          <label for="filtre" class="dropdown-title">Trier Par </label>
+          <input
+            class="dropdown-button"
+            type="hidden"
+            role="button"
+            aria-label="Trier par"
+            aria-haspopup="lisbox"
+            aria-expanded="true"
+            tabindex="0"
+            id="filtre"
+          />
+          <div class="dropdown-input">
+            <label for="popularr" hidden="true" >Popularité</label>
+            <input
+              type="text"
+              aria-label="famous"
+              role="button"
+              readonly
+              value="Popularité"
+              id="popularr"
+            />
+            <em class="dropdown__chevron fas fa-chevron-down"></em>
+          </div>
+          <div class="dropdown-round">
+            <ul>
+              <li
+                id="popular"
+                data-value="value-1"
+                role="listbox"
+                aria-selected=""
+                aria-label="selectionner par Popularité"
+              >
+                Popularité
+              </li>
+              <li
+                id="date"
+                data-value="value-2"
+                role="listbox"
+                aria-selected=""
+                aria-label="selectionner par Date"
+              >
+                Date
+              </li>
+              <li
+                id="title"
+                data-value="value-3"
+                role="listbox"
+                aria-selected=""
+                aria-label="selectionner par Titre"
+              >
+                Titre
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="profil__media" class="section_media"></section>
+      <div id="summery" class="Bloc_red"></div>
+    </main>
+    <aside
+      id="contact_modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-describedby="modalContact"
+      aria-labelledby="title-modale"
+      aria-label="Contact me"
+    >
+      <div class="modal" tabindex="-1">
+        <header>
+          <div class="header-title-icon">
+            <h2 id="title-modale">Contactez-moi</h2>
+            <img
+              src="assets/icons/close.svg"
+              alt="Close Contact form "
+              role="button"
+              aria-label="Ferme la modale"
+              id="btn-modal-close"
+            />
+          </div>
+          <div id ="name-photogrpager-modale"></div>
+        </header>
+        <form name="reserve" action="photographer.html" method="get">
+          <div class="formData">
+            <label for="first" id="label-firstname">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="firstname"
+              aria-label="firstname"
+            
+            />
+          </div>
+          <p class="error" id="errorFirstname">
+          "Veuillez entrer votre prénom"
+          </p>
+          <div class="formData">
+            <label for="lastName" id="label-name">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="lastName"
+              name="last"
+              aria-label="lastName"
+            
+            />
+          </div>
+          <p class="error" id="error-lastName">
+            "Veuillez entrer votre nom" </p>
+          <div class="formData">
+            <label for="mail" id="label-mail">Email</label>
+            <input class="text-control" type="email" id="mail" name="email" tabindex="3" />
+          </div>
+          <p class="error" id="errormail">
+            "Veuillez entrer une addresse email valide"
+            </p>
+          <div class="formData">
+            <label for="commit" id="label-commit">Votre message</label>
+            <textarea
+              class="text-control"
+              type="text"
+              id="commit"
+              name="cmt"
+              aria-label="votre message"
+              rows="5"
+              cols="45"
+            >
+            </textarea>
+          </div>
+          <p class="error" id="errorcommit">
+            "Veuillez entrer au minimum 12 caractères"
+            </p>
+          <button class="contact_button" type="submit" id="btn-contact">Envoyer</button>
+        </form>
+      </div>
+      <div class="modal-success" id="bground-success">
+        <div class="content" id ="confirm-modal">
+          <span class="close" id ='close-modalsucess'></span>
+          <div class="modal-body" id="modal-body-contact" >
+            <h1 class="message" id="msg">
+              Merci pour votre message 
+            </h1>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <aside
+      class="section-lightBox"
+      id="lightBox"
+      role="dialog"
+      aria-label="image closeup view"
+      aria-hidden="true"
+    >
+      <div class="lightBox-content">
+      </div>
+      <div class="lightbox__commandes">
+        <button
+          id="lightbox__close"
+          type="button"
+          aria-label="Fermer"
+          title="fermer cette fenetre modale"
+          data-dismiss="dialog"
+        ></button>
+        <a
+          href="#"
+          aria-label="Previous image"
+          class="link-media"
+          id="link__previous__media"
+         
+        >
+          <span class="arrow__left" aria-label="media suivant"> </span>
+        </a>
+        <a
+          href="#"
+          aria-label="Next image"
+          class="link media"
+          id="link__next__media"
+        >
+          <span class="arrow__right" aria-label="media precedent"> </span>
+        </a>
+        <h2  class="title-lightbox"></h2>
+      </div>
+      
+    </aside>
+
+    <script src="scripts/factories/media.js"></script>
+    <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
+  </body>
+</html>

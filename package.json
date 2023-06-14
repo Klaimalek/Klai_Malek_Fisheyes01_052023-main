@@ -1,0 +1,15 @@
+{
+  "name": "klai_malek_fisheyes_052023-main",
+  "version": "1.0.0",
+  "description": "Créez un site accessible pour une plateforme de photographes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --max-warnings=0 ."
+  },
+  "author": "Klai Malek",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.42.0"
+  }
+}

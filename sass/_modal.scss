@@ -1,0 +1,112 @@
+@import 'mixine';
+.modal {
+  background-color: $backgroundBlock;
+  width: 30%;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);// dispostion de la modale au centre
+  border-radius: 5px;
+  box-shadow: -5px 12px 18px -9px rgba(0,0,0,0.66);
+}
+
+.modal header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.header-title-icon{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.modal header img {
+  cursor: pointer;
+  width: 5%;
+}
+
+.modal header h2 {
+  font-size: 40px;
+  font-weight: normal;
+  
+}
+#name-photogrpager-modale{
+  margin-left: -100px;
+  font-size: 40px;
+  font-weight: normal;
+}
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+form label {
+  color: #312e2e;
+  font-size: 25px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+
+form input {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+}
+.error {
+  color: white;
+  font-size: 18px;
+  display: none;
+}
+.modal-success {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+#confirm-modal{
+    width: 400px;
+    height: 600px; 
+  }
+  .content {
+    margin: 5% auto;
+    width: 40%;
+    max-width: 500px;
+    height: 40%;
+    max-height: 200px;
+    background: #f79494;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+}
+.modal-body{
+    text-align: center;
+    padding-left: 102px;
+    
+}

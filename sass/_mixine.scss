@@ -1,0 +1,40 @@
+
+@mixin display_column{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+@mixin display_row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@mixin locationPhotographer{
+    font-weight: 400;
+    font-size: 24px;
+    color: $colorLoacation
+}
+@mixin taglinePhotographer{
+    font-weight: 400;
+    font-size: 18px;
+}
+@mixin styleImgVideo{
+    height: 11.9rem;
+    object-fit: cover;
+    width: 20.9375rem;
+    border-radius: 0.5em;
+}
+@mixin arrow {
+    width: 30px;
+    height:48px ;
+    position: fixed;
+    cursor: pointer;
+    top: 50%;
+}
+@mixin styleMediaLightbox{
+    height: 85%;
+    width: 70%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}

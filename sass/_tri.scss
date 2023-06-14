@@ -1,0 +1,109 @@
+@import 'mixine';
+@import 'variables';
+
+.section-tri{
+  margin: 90px;
+
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  width: 290px;
+  height: 55px;
+  border-radius: 5px;
+  margin-left: 1rem;
+}
+
+.dropdown-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 200px;
+}
+.dropdown-input {
+  border: 1px solid;
+  border-color: $colorLoacation;
+  border-radius: 5px;
+  background-color: $colorLoacation;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: 300ms ease;
+  -webkit-transition: 300ms ease;
+  -moz-transition: 300ms ease;
+  -ms-transition: 300ms ease;
+  -o-transition: 300ms ease;
+}
+.dropdown.active .dropdown-input {
+  border-color: white;
+}
+
+.dropdown-input input {
+  color: white;
+  font-size: 1.3rem;
+  flex: 0 0 auto;
+  width: 80%;
+  height: 100%;
+  padding: 0 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.dropdown__chevron {
+  font-size: 1.4rem;
+  color: white;
+  &:active {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+  }
+}
+
+.dropdown-round {
+  position: absolute;
+  width: 173px;
+  left: 117px;
+  font-size: 1.3rem;
+  top: calc(100% + 50px);
+  border-top: 1px solid white;
+  border-radius: 5px;
+  background-color: $colorLoacation;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: top 300ms ease, opacity 300ms ease;
+  -webkit-transition: top 300ms ease, opacity 300ms ease;
+  -moz-transition: top 300ms ease, opacity 300ms ease;
+  -ms-transition: top 300ms ease, opacity 300ms ease;
+  -o-transition: top 300ms ease, opacity 300ms ease;
+}
+.dropdown.active .dropdown-round {
+  top: 0px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-round ul {
+  list-style: none;
+}
+.dropdown-round ul li {
+  color: white;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  border-top: 1px solid white;
+  transition: background-color 300ms ease;
+  -webkit-transition: background-color 300ms ease;
+  -moz-transition: background-color 300ms ease;
+  -ms-transition: background-color 300ms ease;
+  -o-transition: background-color 300ms ease;
+}
+
+.dropdown-round ul li:hover {
+  background-color: gold;
+}
