@@ -203,6 +203,7 @@ function functionSort(data) {
 
   setMedia(media);
   initLightbox();
+  manageLikes();
 }
 //---------------------------------lightbox--------------------------------------
 
