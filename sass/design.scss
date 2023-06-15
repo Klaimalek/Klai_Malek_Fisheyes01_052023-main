@@ -26,7 +26,12 @@ header {
     align-items: center;
     height: 90px;
 }
-
+@media screen and (max-width: 768px) {
+header{
+    width: 100%;
+    height: 60px;
+}
+}
 h1 {
     color: #901C1C;
     margin-right: 100px;
