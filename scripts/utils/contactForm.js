@@ -8,7 +8,7 @@ function launchModal(photographer) {
   modal.style.display = 'block';
   main.setAttribute('aria-hidden', false);
   modal.setAttribute('aria-hidden', true);
-  btnclose.focus();
+  //btnclose.focus();
 }
 //------------------------ close Modale-------------------
 const btnclose = document.getElementById('btn-modal-close');
@@ -141,12 +141,12 @@ function setFocusOnlyInContainer(
   classLastElement,
 ) {
   document
-    .querySelector(classContainer)
+    .querySelector(classContainer) //.modal
     .addEventListener('keydown', (event) => {
       //Si element change de place dans le container
       let firstElement = document.querySelector(classFirstElement);
       let lastElement = document.querySelector(classLastElement);
-
+     
       let isTab = event.key == 'Tab' || event.keyCode == 9;
       if (event.shiftKey) {
         if (document.activeElement == firstElement) {
@@ -155,7 +155,7 @@ function setFocusOnlyInContainer(
         }
       } else {
         if (document.activeElement == lastElement) {
-          firstElement.focus();
+          lastElement.focus();
           event.preventDefault();
         }
       }

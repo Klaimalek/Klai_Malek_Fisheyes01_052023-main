@@ -8,7 +8,7 @@ function mediaFactory(data) {
     } else if (type == 'video') {
       console.log(data.video);
       console.log(data.photographerId);
-      element = `<video class="video_Media" preload="metadata" data-id='${data.id}' title="${data.title}"= controls>
+      element = `<video class="video_Media" preload="metadata" data-id='${data.id}' title="${data.title}"= >
         <source src="/assets/media/${data.photographerId}/${data.video}#t=0.1" type="video/mp4">
         </source>
         </video>`;
