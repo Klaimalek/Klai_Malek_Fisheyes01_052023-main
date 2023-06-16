@@ -48,13 +48,13 @@ LastnameIputEvent.addEventListener('input', validLastname);
 function validLastname (LastnameIputEvent) {
   const  MessageErreurLastname = document.getElementById('error-lastName');
   const lastnameValue = LastnameIputEvent.value;
-  if (lastnameValue.length <= 2) {
+  if (lastnameValue =='') {
     MessageErreurLastname.style.display = 'inline';
     LastnameIputEvent.focus();
     return false;
-  } else if (lastnameValue.length >= 2) {
+  } else {
     MessageErreurLastname.style.display = 'none';
-    LastnameIputEvent.focus();
+    
     return true;
   }
 };
