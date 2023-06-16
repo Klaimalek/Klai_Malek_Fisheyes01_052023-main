@@ -133,6 +133,7 @@
               role="button"
               aria-label="Ferme la modale"
               id="btn-modal-close"
+              tabindex="0"
             />
           </div>
           <div id ="name-photogrpager-modale"></div>
@@ -146,7 +147,6 @@
               id="first"
               name="firstname"
               aria-label="firstname"
-            
             />
           </div>
           <p class="error" id="errorFirstname">
@@ -160,14 +160,14 @@
               id="lastName"
               name="last"
               aria-label="lastName"
-            
+              tabindex="0"
             />
           </div>
           <p class="error" id="error-lastName">
             "Veuillez entrer votre nom" </p>
           <div class="formData">
             <label for="mail" id="label-mail">Email</label>
-            <input class="text-control" type="email" id="mail" name="email" tabindex="3" />
+            <input class="text-control" type="email" id="mail" name="email" tabindex="0" />
           </div>
           <p class="error" id="errormail">
             "Veuillez entrer une addresse email valide"
