@@ -2,7 +2,7 @@
 @import 'variables';
 
 .section-tri{
-  margin: 90px;
+  margin: 90px; 
 }
 
 .dropdown {
@@ -10,7 +10,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 290px;
+  width: 337px;
   height: 60px;
   border-radius: 5px;
 }
@@ -30,8 +30,8 @@
   background-color: $colorLoacation;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   cursor: pointer;
-  
 }
 .dropdown.active .dropdown-input {
   border-color: white;
@@ -39,11 +39,9 @@
 
 .dropdown-input input {
   color: white;
-  font-size: 1.3rem;
-  flex: 0 0 auto;
+  font-size: 18px;
   width: 80%;
   height: 100%;
-  padding: 0 -2rem;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -66,7 +64,7 @@
 
 .dropdown-round {
   position: absolute;
-  width: 173px;
+  width: 219px;
   left: 117px;
   font-size: 1.3rem;
   border-top: 1px solid white;
@@ -75,8 +73,8 @@
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  
 }
+
 .dropdown.active .dropdown-round {
   top: 0px;
   opacity: 1;

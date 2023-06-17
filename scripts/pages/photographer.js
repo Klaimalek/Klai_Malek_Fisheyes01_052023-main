@@ -171,7 +171,6 @@ function handleSortMedia() {
   const sortPopularity = document.getElementById('popular');
   const sortDate = document.getElementById('date');
   const sortTitle = document.getElementById('title');
-
   sortPopularity.addEventListener('click', (e) => {
     functionSort(e.target);
   });
@@ -187,7 +186,7 @@ function functionSort(data) {
   totalLikes = 0;
   document.getElementsByClassName('totalLikes').textContent;
   let resultSort = [];
-  //console.log(data.id);
+  console.log(data.id);
   if (data.id == 'title') {
     let resultSort = media.sort((a, b) => a.title.localeCompare(b.title));
     //console.log(resultSort);
