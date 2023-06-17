@@ -1,7 +1,6 @@
-function initModalContact() {
-  const btnContact = document.getElementsByClassName('contact_button').focus();
-  btnContact[0].addEventListener('click', launchModal);
-}
+
+const btnContact = document.getElementById('btn-contact-Photographer');
+btnContact.addEventListener('click',launchModal)
 //------------------- launch modal form------------------------
 function launchModal(photographer) {
   const modal = document.getElementById('contact_modal');
@@ -111,17 +110,22 @@ successModal.style.display='block';
 }
 function validation () {
   let isOK = [];
-
+  const inputFirstName = document.getElementById('first');
+  const LastnameIputEvent =document.getElementById('lastName');
+  const inputMail = document.getElementById('mail');
+  const inputCommit = document.getElementById('commit');
   isOK.push(validName(inputFirstName));
   isOK.push(validLastname(LastnameIputEvent));
   isOK.push(validMail(inputMail));
   isOK.push(validCommit(inputCommit));
+  console.log({'firstName':inputFirstName.value,'lastname':LastnameIputEvent.value,'mail':inputMail.value,'Message':inputCommit.value});
   if (isOK.includes(false)) {
     successModal.style.display='none';
     confirmationValidation.style.display = 'none';
   } else {
    lunchModalSuccess();
    confirmationValidation.style.display='block';
+
   }
 };
 
