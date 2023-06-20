@@ -36,5 +36,4 @@ function mediaFactory(data) {
 
 }
 
-// -----------------fonction incrémentation de likes----------
 

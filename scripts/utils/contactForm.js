@@ -7,7 +7,7 @@ function launchModal(photographer) {
   modal.style.display = 'block';
   main.setAttribute('aria-hidden', false);
   modal.setAttribute('aria-hidden', true);
-  //btnclose.focus();
+  modal.focus();
 }
 //------------------------ close Modale-------------------
 const btnclose = document.getElementById('btn-modal-close');
