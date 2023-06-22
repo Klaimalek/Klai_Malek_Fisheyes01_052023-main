@@ -1,7 +1,7 @@
-function mediaFactory(data) {
+ mediaFactory=(data)=> {
   let type = data.video ? 'video' : 'image';
 
-  function getCardMedia() {
+   getCardMedia=()=> {
     let element;
     if (type == 'image') {
       element = `<img class="img_Media" src=assets/media/${data.photographerId}/${data.image} alt="${data.title}" data-id=${data.id}></img>`;

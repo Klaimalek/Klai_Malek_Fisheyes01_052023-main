@@ -33,14 +33,14 @@ async function setDataProfil() {
   setDataElement(photographer, media);
 }
 // display les données poor le photographer et media
-function setDataElement(photographer, media) {
+ setDataElement=(photographer, media)=> {
   setProfilPhotgrapher(photographer);
   setMedia(media);
   setSummeryGphotographer(photographer, media);
 }
 
 //Mettre info dans la presentation du photographe
-function setProfilPhotgrapher(photographer) {
+ setProfilPhotgrapher=(photographer) =>{
   document.getElementById('namePhotographer').innerText = photographer.name;
   document.getElementById(
     'photohrapherLocation'
@@ -62,7 +62,7 @@ function setProfilPhotgrapher(photographer) {
 
 // display les medias
 
-function setMedia(media) {
+setMedia=(media) =>{
   const galleryMedia = document.querySelector('#profil__media');
   media.forEach((element) => {
     let media = mediaFactory(element);
@@ -75,19 +75,19 @@ function setMedia(media) {
 
 //mettre les données dans le bloc rouge
 
-function setSummeryGphotographer(photographer, media) {
+ setSummeryGphotographer=(photographer, media)=> {
   const blocSummery = document.querySelector('#summery');
   let medias = summeryFactory(photographer);
   let div = medias.getCardBloc(photographer);
   blocSummery.innerHTML += div;
 }
 
-function summeryFactory(photographer) {
+ summeryFactory=(photographer)=> {
   getCardBloc(photographer);
   return { getCardBloc };
 }
 
-function getCardBloc(photographer) {
+getCardBloc=(photographer)=> {
   const totalLike = document.querySelectorAll('.favorite');
   totalLikeCount = 0;
   totalLike.forEach((media) => {
@@ -102,13 +102,13 @@ function getCardBloc(photographer) {
           `;
   return blocPhotographer;
 }
-function manageLikes() {
+ manageLikes=() =>{
   const btnLikes = document.getElementsByClassName('favorite');
   for (let btnLike of btnLikes) {
     btnLike.addEventListener('click', incrementLike);
   }
 }
-function incrementLike(event) {
+ incrementLike=(event) =>{
   let parentElement = event.target.parentNode;
   let likeElement = parentElement.firstElementChild;
   let likeNumber = parseInt(likeElement.textContent);
@@ -137,7 +137,7 @@ function incrementLike(event) {
 // récupération de nobre total par id et ajouter +1
 
 //------------------selection des options pour faire le tri ---------------------------
-function displayDropdownFilter() {
+ displayDropdownFilter=()=> {
   //récupérer les éléments de la liste déroulante
   const elementsDropdown = document.querySelectorAll('.dropdown');
   const chevron = document.getElementsByClassName('dropdown__chevron')[0];
@@ -169,7 +169,7 @@ function displayDropdownFilter() {
   });
 }
 //------------------------------- trier-------------------------------------------
-function handleSortMedia() {
+ handleSortMedia=()=> {
   const sortPopularity = document.getElementById('popular');
   const sortDate = document.getElementById('date');
   const sortTitle = document.getElementById('title');
@@ -184,7 +184,7 @@ function handleSortMedia() {
     functionSort(e.target);
   });
 }
-function functionSort(data) {
+functionSort=(data) =>{
   totalLikes = 0;
   document.getElementsByClassName('totalLikes').textContent;
   let resultSort = [];
@@ -209,7 +209,7 @@ function functionSort(data) {
 
 //------------------openLightbox---------------------------------
 
-function initLightbox() {
+ initLightbox=()=> {
   const linkMedia = Array.from(document.getElementsByClassName('media__link'));
   const btnClose = document.getElementById('lightbox__close');
   const nextMedia = document.getElementById('link__next__media');
@@ -232,7 +232,7 @@ function initLightbox() {
   slidingClavier();
 }
 
-function openLightbox(event) {
+ openLightbox=(event)=>{
   const id = event.target.getAttribute('data-id');
   const lightBoxBlock = document.getElementById('lightBox');
   const btnClose = document.getElementById('lightbox__close');
@@ -242,14 +242,14 @@ function openLightbox(event) {
 }
 //--------------------closeLightbox---------------------------------
 
-function closeLightBox() {
+ closeLightBox=() =>{
   const lightBoxBlock = document.getElementById('lightBox');
   lightBoxBlock.style.display = 'none';
   lightBoxBlock.focus();
 }
 
 // ----------placer l'image dans le conteneur lightbox-------------------
-function displayMediaLightbox(id) {
+ displayMediaLightbox=(id) =>{
   const mediaModel = document.querySelector(`[data-id='${id}']`);
   const mediaClone = mediaModel.cloneNode();
   console.log(mediaModel);
@@ -277,7 +277,7 @@ function displayMediaLightbox(id) {
 
 //------------------sliding media -----------------------------------------
 
-function slidingLightBox(index) {
+ slidingLightBox=(index)=> {
   const lightboxContent = document.querySelector('.lightBox-content');
   if (listMediaId.length > 0) {
     let indexListMedia = listMediaId.findIndex(
@@ -297,7 +297,7 @@ function slidingLightBox(index) {
 }
 
 // la navigation lightbox avec les flèches du clavier
-function slidingClavier() {
+ slidingClavier=()=> {
   document.addEventListener('keydown', (event) => {
     const lightBoxBlock = document.getElementById('lightBox');
     const isLightboxActive = () => lightBoxBlock.style.display !== 'none';
