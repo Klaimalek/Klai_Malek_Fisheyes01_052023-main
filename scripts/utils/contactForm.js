@@ -1,34 +1,30 @@
-
-const btnContact = document.getElementById('btn-contact-Photographer');
-btnContact.addEventListener('click',launchModal)
 //------------------- launch modal form------------------------
-function launchModal(photographer) {
+const btnContact = document.getElementById('btn-contact-Photographer');
+btnContact.addEventListener('click',launchModal=()=>{
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
-  main.setAttribute('aria-hidden', false);
-  modal.setAttribute('aria-hidden', true);
   modal.focus();
-}
+})
+
 //------------------------ close Modale-------------------
 const btnclose = document.getElementById('btn-modal-close');
-btnclose.addEventListener('click', closeModal);
-function closeModal() {
+btnclose.addEventListener('click', closeModal=()=>{
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
+});
 
-}
 // -----------------close la modale avec le clavier-----------------
-window.addEventListener('keydown', function (e) {
+window.addEventListener('keydown',  (e)=> {
   if (e.key === 'Escape' || e.key === 'Esc') {
     closeModal(e);
   }
 });
 //--------------------- validation du prénom-------------------
 const inputFirstName = document.getElementById('first');
-inputFirstName.addEventListener('input', function () {
+inputFirstName.addEventListener('input',()=> {
   validName(inputFirstName);
 });
-function validName(inputFirstName) {
+ validName=(inputFirstName)=>{
   const MessageErreurFirstName = document.getElementById('errorFirstname');
   const nameInputValue = inputFirstName.value;
   if (nameInputValue.length <= 2) {
@@ -43,8 +39,10 @@ function validName(inputFirstName) {
 }
 //--------------------- validation du nom-------------------
 const LastnameIputEvent =document.getElementById('lastName');
-LastnameIputEvent.addEventListener('input', validLastname);
-function validLastname (LastnameIputEvent) {
+LastnameIputEvent.addEventListener('input',()=>{
+  validLastname(LastnameIputEvent)
+} );
+ validLastname=(LastnameIputEvent)=>{
   const  MessageErreurLastname = document.getElementById('error-lastName');
   const lastnameValue = LastnameIputEvent.value;
   if (lastnameValue =='') {
@@ -59,10 +57,10 @@ function validLastname (LastnameIputEvent) {
 };
 // -------validation de mail ----------------------
 const inputMail = document.getElementById('mail');
-inputMail.addEventListener('input', function () {
+inputMail.addEventListener('input',()=> {
   validMail();
 });
-function validMail(){
+ validMail=()=>{
   const messageErrorMail = document.getElementById('errormail');
   const regEmail = new RegExp(
     '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$',
@@ -80,10 +78,10 @@ function validMail(){
 }
 // --------------- validation commentaires
 const inputCommit = document.getElementById('commit');
-inputCommit.addEventListener('input', function () {
+inputCommit.addEventListener('input', ()=> {
   validCommit();
 });
-function validCommit(){
+ validCommit=()=>{
   const messageErrorCommit= document.getElementById('errorcommit');
   const inputCommitValue = inputCommit.value;
   if (inputCommitValue.length <= 12) {
@@ -102,13 +100,7 @@ const successModal = document.getElementById('bground-success');
 const confirmationValidation = document.getElementById('confirm-modal');
 const btnSubmit = document.getElementById('btn-contact');
 
-btnSubmit.addEventListener('click',validation);
-
-function lunchModalSuccess(){
-successModal.style.display='block';
-//form.submit()
-}
-function validation () {
+btnSubmit.addEventListener('click',validation=()=>{
   let isOK = [];
   const inputFirstName = document.getElementById('first');
   const LastnameIputEvent =document.getElementById('lastName');
@@ -127,23 +119,18 @@ function validation () {
    confirmationValidation.style.display='block';
 
   }
-};
-
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  validation();
 });
-setFocusOnlyInContainer('.modal','button[type="submit"]')
 
+ lunchModalSuccess=()=>{
+successModal.style.display='block';
+//form.submit()
+}
 
-
-//Garder le focus uniquement dans les formulaires,
-function setFocusOnlyInContainer(
+const setFocusOnlyInContainer=(
   classContainer,
   classFirstElement,
   classLastElement,
-) {
+)=> {
   document
     .querySelector(classContainer) //.modal
     .addEventListener('keydown', (event) => {
@@ -165,3 +152,11 @@ function setFocusOnlyInContainer(
       }
     });
 }
+form.addEventListener('submit', (e)=> {
+  e.preventDefault();
+  validation();
+});
+setFocusOnlyInContainer('.modal','button[type="submit"]')
+
+//Garder le focus uniquement dans les formulaires,
+

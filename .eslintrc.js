@@ -11,6 +11,7 @@ module.exports = {
         'eqeqeq': 'off',
         'curly': 'error',
         'quotes': [2, 'single', { 'avoidEscape': true }],
+        'func-style': ['error', 'expression']
         
     }
 }

@@ -1,19 +1,9 @@
-(async function main() {
-  await setDataProfil();
-  manageLikes();
-  displayDropdownFilter();
-  handleSortMedia();
-  initLightbox();
-})();
-var media = null;
-var totalLikeCount = 0;
-var listMediaId = [];
-function urlGetParams(url) {
+//récupération des données
+const urlGetParams=(url)=> {
   let resultat = url.search;
   return resultat.substring(4);
 }
-//récupération des données
-async function setDataProfil() {
+const  setDataProfil=async()=> {
   const idPhotoghrapher = urlGetParams(document.location);
   let response = await fetch('../data/photographers.json');
   if (!response.ok) {
@@ -32,15 +22,26 @@ async function setDataProfil() {
   console.log(listMediaId);
   setDataElement(photographer, media);
 }
+(main = async () => {
+  await setDataProfil();
+  manageLikes();
+  displayDropdownFilter();
+  handleSortMedia();
+  initLightbox();
+})();
+var media = null;
+var totalLikeCount = 0;
+var listMediaId = [];
+
 // display les données poor le photographer et media
- setDataElement=(photographer, media)=> {
+setDataElement = (photographer, media) => {
   setProfilPhotgrapher(photographer);
   setMedia(media);
   setSummeryGphotographer(photographer, media);
-}
+};
 
 //Mettre info dans la presentation du photographe
- setProfilPhotgrapher=(photographer) =>{
+setProfilPhotgrapher = (photographer) => {
   document.getElementById('namePhotographer').innerText = photographer.name;
   document.getElementById(
     'photohrapherLocation'
@@ -58,11 +59,11 @@ async function setDataProfil() {
   namePhptographerModal.innerText = `${photographer.name}`;
   const modal = document.getElementById('contact_modal');
   modal.setAttribute('aria-label', 'contact me ' + `${photographer.name}`);
-}
+};
 
 // display les medias
 
-setMedia=(media) =>{
+setMedia = (media) => {
   const galleryMedia = document.querySelector('#profil__media');
   media.forEach((element) => {
     let media = mediaFactory(element);
@@ -71,23 +72,23 @@ setMedia=(media) =>{
   });
   let listMedia = galleryMedia.childNodes;
   console.log(listMedia);
-}
+};
 
 //mettre les données dans le bloc rouge
 
- setSummeryGphotographer=(photographer, media)=> {
+setSummeryGphotographer = (photographer, media) => {
   const blocSummery = document.querySelector('#summery');
   let medias = summeryFactory(photographer);
   let div = medias.getCardBloc(photographer);
   blocSummery.innerHTML += div;
-}
+};
 
- summeryFactory=(photographer)=> {
+summeryFactory = (photographer) => {
   getCardBloc(photographer);
   return { getCardBloc };
-}
+};
 
-getCardBloc=(photographer)=> {
+getCardBloc = (photographer) => {
   const totalLike = document.querySelectorAll('.favorite');
   totalLikeCount = 0;
   totalLike.forEach((media) => {
@@ -101,14 +102,14 @@ getCardBloc=(photographer)=> {
             <div class="pricePhotographer"> ${photographer.price} €/ jour</div>
           `;
   return blocPhotographer;
-}
- manageLikes=() =>{
+};
+manageLikes = () => {
   const btnLikes = document.getElementsByClassName('favorite');
   for (let btnLike of btnLikes) {
     btnLike.addEventListener('click', incrementLike);
   }
-}
- incrementLike=(event) =>{
+};
+incrementLike = (event) => {
   let parentElement = event.target.parentNode;
   let likeElement = parentElement.firstElementChild;
   let likeNumber = parseInt(likeElement.textContent);
@@ -132,12 +133,12 @@ getCardBloc=(photographer)=> {
     likes.innerHTML = totalLikeCount;
   }
   parentElement.classList.toggle('liked');
-}
+};
 
 // récupération de nobre total par id et ajouter +1
 
 //------------------selection des options pour faire le tri ---------------------------
- displayDropdownFilter=()=> {
+displayDropdownFilter = () => {
   //récupérer les éléments de la liste déroulante
   const elementsDropdown = document.querySelectorAll('.dropdown');
   const chevron = document.getElementsByClassName('dropdown__chevron')[0];
@@ -167,9 +168,9 @@ getCardBloc=(photographer)=> {
       });
     });
   });
-}
+};
 //------------------------------- trier-------------------------------------------
- handleSortMedia=()=> {
+handleSortMedia = () => {
   const sortPopularity = document.getElementById('popular');
   const sortDate = document.getElementById('date');
   const sortTitle = document.getElementById('title');
@@ -183,8 +184,8 @@ getCardBloc=(photographer)=> {
   sortTitle.addEventListener('click', (e) => {
     functionSort(e.target);
   });
-}
-functionSort=(data) =>{
+};
+functionSort = (data) => {
   totalLikes = 0;
   document.getElementsByClassName('totalLikes').textContent;
   let resultSort = [];
@@ -204,12 +205,12 @@ functionSort=(data) =>{
   setMedia(media);
   initLightbox();
   manageLikes();
-}
+};
 //---------------------------------lightbox--------------------------------------
 
 //------------------openLightbox---------------------------------
 
- initLightbox=()=> {
+initLightbox = () => {
   const linkMedia = Array.from(document.getElementsByClassName('media__link'));
   const btnClose = document.getElementById('lightbox__close');
   const nextMedia = document.getElementById('link__next__media');
@@ -218,38 +219,38 @@ functionSort=(data) =>{
   linkMedia.forEach(function (media) {
     media.addEventListener('click', openLightbox);
   });
-  window.addEventListener('keydown', function (e) {
+  window.addEventListener('keydown',  (e)=> {
     if (e.key === 'Escape' || e.key === 'Esc') {
       closeLightBox(e);
     }
   });
-  nextMedia.addEventListener('click', function () {
+  nextMedia.addEventListener('click',  ()=> {
     slidingLightBox(1);
   });
-  previousMedia.addEventListener('click', function () {
+  previousMedia.addEventListener('click',  ()=> {
     slidingLightBox(-1);
   });
   slidingClavier();
-}
+};
 
- openLightbox=(event)=>{
+openLightbox = (event) => {
   const id = event.target.getAttribute('data-id');
   const lightBoxBlock = document.getElementById('lightBox');
   const btnClose = document.getElementById('lightbox__close');
   displayMediaLightbox(id);
   lightBoxBlock.style.display = 'block';
   btnClose.focus();
-}
+};
 //--------------------closeLightbox---------------------------------
 
- closeLightBox=() =>{
+closeLightBox = () => {
   const lightBoxBlock = document.getElementById('lightBox');
   lightBoxBlock.style.display = 'none';
   lightBoxBlock.focus();
-}
+};
 
 // ----------placer l'image dans le conteneur lightbox-------------------
- displayMediaLightbox=(id) =>{
+displayMediaLightbox = (id) => {
   const mediaModel = document.querySelector(`[data-id='${id}']`);
   const mediaClone = mediaModel.cloneNode();
   console.log(mediaModel);
@@ -273,11 +274,11 @@ functionSort=(data) =>{
   if (mediaModel.nodeName != 'VIDEO') {
     titleMedia[0].innerText = mediaModel.alt;
   }
-}
+};
 
 //------------------sliding media -----------------------------------------
 
- slidingLightBox=(index)=> {
+slidingLightBox = (index) => {
   const lightboxContent = document.querySelector('.lightBox-content');
   if (listMediaId.length > 0) {
     let indexListMedia = listMediaId.findIndex(
@@ -294,10 +295,10 @@ functionSort=(data) =>{
 
     displayMediaLightbox(listMediaId[indexListMedia]);
   }
-}
+};
 
 // la navigation lightbox avec les flèches du clavier
- slidingClavier=()=> {
+slidingClavier = () => {
   document.addEventListener('keydown', (event) => {
     const lightBoxBlock = document.getElementById('lightBox');
     const isLightboxActive = () => lightBoxBlock.style.display !== 'none';
@@ -315,4 +316,4 @@ functionSort=(data) =>{
       }
     }
   });
-}
+};
