@@ -32,7 +32,7 @@
     width: 100%;
     max-height: 900px;
     height: 100%;
-    object-fit: fill;
+    object-fit: contain;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 50px;
@@ -75,8 +75,8 @@
   position: absolute;
   margin-right: 10%;
   bottom: 1%;
-  left: 17%;
-  font-size: 24px;
+  left: 35%;
+  font-size: 20px;
   font-weight: 500;
   padding-top: 10px;
 

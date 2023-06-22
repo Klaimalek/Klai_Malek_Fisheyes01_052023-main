@@ -52,8 +52,10 @@ function setProfilPhotgrapher(photographer) {
     'photographerImg'
   ).src = `assets/photographers/${photographer.portrait}`;
   // dispaly le nom et le prénom de phptpgraphe dans la modale contacte me
-  const namePhptographerModal = document.getElementById('name-photogrpager-modale');
-  namePhptographerModal.innerText=`${photographer.name}`;
+  const namePhptographerModal = document.getElementById(
+    'name-photogrpager-modale'
+  );
+  namePhptographerModal.innerText = `${photographer.name}`;
   const modal = document.getElementById('contact_modal');
   modal.setAttribute('aria-label', 'contact me ' + `${photographer.name}`);
 }
@@ -189,7 +191,6 @@ function functionSort(data) {
   console.log(data.id);
   if (data.id == 'title') {
     let resultSort = media.sort((a, b) => a.title.localeCompare(b.title));
-    //console.log(resultSort);
   } else if (data.id == 'date') {
     let resultSort = media.sort((a, b) => new Date(b.date) - new Date(a.date));
     //console.log(resultSort);
@@ -205,7 +206,6 @@ function functionSort(data) {
   manageLikes();
 }
 //---------------------------------lightbox--------------------------------------
-
 
 //------------------openLightbox---------------------------------
 
@@ -229,7 +229,7 @@ function initLightbox() {
   previousMedia.addEventListener('click', function () {
     slidingLightBox(-1);
   });
-  slidingClavier()
+  slidingClavier();
 }
 
 function openLightbox(event) {
@@ -297,13 +297,13 @@ function slidingLightBox(index) {
 }
 
 // la navigation lightbox avec les flèches du clavier
-function slidingClavier(){
-document.addEventListener('keydown', (event) =>{
-  const lightBoxBlock = document.getElementById('lightBox');
-  const isLightboxActive = () => lightBoxBlock.style.display !== 'none';
-  const key = event.key;
+function slidingClavier() {
+  document.addEventListener('keydown', (event) => {
+    const lightBoxBlock = document.getElementById('lightBox');
+    const isLightboxActive = () => lightBoxBlock.style.display !== 'none';
+    const key = event.key;
 
-  if (isLightboxActive ) {
+    if (isLightboxActive) {
       switch (key) {
         case 'ArrowRight':
           slidingLightBox(1);
@@ -314,5 +314,5 @@ document.addEventListener('keydown', (event) =>{
         default:
       }
     }
-});
+  });
 }
