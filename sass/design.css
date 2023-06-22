@@ -556,12 +556,12 @@ form input {
 .title-lightbox {
   color: hsl(0, 67%, 34%);
   position: absolute;
-  margin-right: 10%;
   bottom: 1%;
-  left: 35%;
   font-size: 20px;
   font-weight: 500;
   padding-top: 10px;
+  width: 100%;
+  padding-left: 35%;
 }
 
 * {
